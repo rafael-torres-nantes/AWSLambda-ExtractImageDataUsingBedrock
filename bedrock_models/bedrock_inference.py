@@ -55,7 +55,7 @@ class BedrockInference:
                         'source': {
                             'type': 'base64',
                             'media_type': 'image/jpeg',
-                            'datav': encode_image(image_path), # Codifica a imagem em base64
+                            'data': encode_image(image_path), # Codifica a imagem em base64
                         },
                     },
                 ]
@@ -77,7 +77,7 @@ class BedrockInference:
     # --------------------------------------------------------------------
     # Função que invoca o modelo e retorna a resposta gerada
     # --------------------------------------------------------------------
-    def invoke_model(self, sytem_prompt, user_prompt, image_path):
+    def invoke_model(self, system_prompt, user_prompt, image_path):
         """
         Invoca o modelo Bedrock com o prompt fornecido.
 
@@ -89,7 +89,7 @@ class BedrockInference:
             modelId=CLAUDE_MODEL_ID, 
             contentType='application/json',
             accept='application/json',
-            body=self.generate_request_body(sytem_prompt, user_prompt, image_path)  # Gera o corpo da requisição
+            body=self.generate_request_body(system_prompt, user_prompt, image_path)  # Gera o corpo da requisição
         )
 
         # Lê o corpo da resposta e extrai o texto gerado pelo modelo
