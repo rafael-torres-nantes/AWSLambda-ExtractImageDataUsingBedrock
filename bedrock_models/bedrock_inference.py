@@ -36,8 +36,13 @@ class BedrockInference:
     def generate_request_body(self, sytem_prompt, user_prompt, image_path):
         """
         Gera o corpo da requisição para enviar ao modelo Bedrock.
-
         Inclui o prompt e configurações de geração de texto como o número máximo de tokens, temperatura e topP.
+
+        Args:
+            prompt (str): O prompt gerado que será enviado ao modelo.
+            system_prompt (str): O prompt do sistema.
+            user_prompt (str): O prompt do usuário.
+            image_path (str): O caminho da imagem a ser codificada em base64.
 
         Returns:
             str: O corpo da requisição em formato JSON.
@@ -81,8 +86,13 @@ class BedrockInference:
         """
         Invoca o modelo Bedrock com o prompt fornecido.
 
-        :param prompt: O prompt gerado que será enviado ao modelo.
-        :return: Resposta de texto gerada pelo modelo.
+        Args: 
+            system_prompt (str): O prompt do sistema.
+            user_prompt (str): O prompt do usuário.
+            image_path (str): O caminho da imagem a ser codificada em base64.
+        
+        Returns:
+            str: O texto gerado pelo modelo.
         """
         # Invoca o modelo Bedrock com o corpo da requisição gerado
         response = self.bedrock_client.invoke_model(
